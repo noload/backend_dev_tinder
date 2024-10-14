@@ -1,7 +1,8 @@
 const mongoo = require("mongoose")
-
+const env = require("dotenv")
+env.config();
 const connectDB = async()=>{
-    await mongoo.connect("mongodb+srv://notesafe:AFe0yYmkAWBsHsKQ@cluster0.fsxrugd.mongodb.net/DevTinder")
+    await mongoo.connect(process.env.MongoURI)
 }
 
 module.exports = connectDB;
